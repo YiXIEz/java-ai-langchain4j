@@ -1,6 +1,8 @@
 package com.atguigu.java.ai.langchain4j;
 
+import dev.langchain4j.community.model.dashscope.QwenChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
+import dev.langchain4j.service.spring.AiService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,4 +34,15 @@ public class LLMTest {
         String answer = model.chat("");
         System.out.println(answer);
     }
+
+    @Autowired
+    private QwenChatModel qwenChatModel;
+    @Test
+    public void testDashScopeQwen() {
+//向模型提问
+        String answer = qwenChatModel.chat("你好");
+//输出结果
+        System.out.println(answer);
+    }
+
 }
