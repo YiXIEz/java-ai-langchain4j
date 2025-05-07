@@ -1,5 +1,7 @@
 package com.atguigu.java.ai.langchain4j;
 
+import com.atguigu.java.ai.langchain4j.assistant.MemoryChatAssistant;
+import com.atguigu.java.ai.langchain4j.config.MemoryChatAssistantConfig;
 import dev.langchain4j.community.model.dashscope.QwenChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.service.spring.AiService;
@@ -43,6 +45,16 @@ public class LLMTest {
         String answer = qwenChatModel.chat("你好");
 //输出结果
         System.out.println(answer);
+    }
+
+    @Autowired
+    private MemoryChatAssistant memoryChatAssistant;
+    @Test
+    public void testMemoryChatAssistant() {
+        String answer1 = memoryChatAssistant.chat("我是环环");
+        System.out.println(answer1);
+        String answer2 = memoryChatAssistant.chat("我是谁");
+        System.out.println(answer2);
     }
 
 }
